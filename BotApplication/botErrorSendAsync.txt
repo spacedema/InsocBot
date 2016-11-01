@@ -1,0 +1,196 @@
+Microsoft.Bot.Builder.FormFlow.FormCanceledException`1[BotApplication.MeterReadings]: Входная строка имела неверный формат. ---> System.FormatException: Входная строка имела неверный формат.
+   в System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   в System.Number.ParseDecimal(String value, NumberStyles options, NumberFormatInfo numfmt)
+   в System.Convert.ToDecimal(String value)
+   в BotApplication.Helpers.Validator.IsMeterValid(String reading, MetersOptions meter) в D:\Projects\Win\BotApplication — копия\BotApplication — копия\BotApplication\Helpers\Validator.cs:строка 29
+   в BotApplication.MeterReadings.<>c.<<MakeForm>b__4_1>d.MoveNext() в D:\Projects\Win\BotApplication — копия\BotApplication — копия\BotApplication\MeterReadings.cs:строка 61
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.FormFlow.Advanced.Field`1.<ValidateAsync>d__46.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.FormFlow.Advanced.FieldStep`1.<SetValueAsync>d__24.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   в Microsoft.Bot.Builder.FormFlow.Advanced.FieldStep`1.<ProcessAsync>d__15.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.FormFlow.FormDialog`1.<>c__DisplayClass14_1.<<MessageReceived>b__1>d.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   в Microsoft.Bot.Builder.FormFlow.FormDialog`1.<MessageReceived>d__14.MoveNext()
+   --- Конец трассировки внутреннего стека исключений ---
+   в Microsoft.Bot.Builder.FormFlow.FormDialog`1.<MessageReceived>d__14.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.DialogTask.ThunkResume`1.<Rest>d__4.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Internals.Fibers.Wait`2.<Microsoft-Bot-Builder-Internals-Fibers-IWait<C>-PollAsync>d__19.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Internals.Fibers.Frame`1.<Microsoft-Bot-Builder-Internals-Fibers-IFrameLoop<C>-PollAsync>d__7.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Internals.Fibers.Fiber`1.<Microsoft-Bot-Builder-Internals-Fibers-IFiberLoop<C>-PollAsync>d__13.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в Microsoft.Bot.Builder.Internals.Fibers.Wait`2.Microsoft.Bot.Builder.Internals.Fibers.IAwaiter<T>.GetResult()
+   в Microsoft.Bot.Builder.Dialogs.Chain.FromDialog`1.<ResumeAsync>d__3.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.DialogTask.ThunkResume`1.<Rest>d__4.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Internals.Fibers.Wait`2.<Microsoft-Bot-Builder-Internals-Fibers-IWait<C>-PollAsync>d__19.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Internals.Fibers.Frame`1.<Microsoft-Bot-Builder-Internals-Fibers-IFrameLoop<C>-PollAsync>d__7.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Internals.Fibers.Fiber`1.<Microsoft-Bot-Builder-Internals-Fibers-IFiberLoop<C>-PollAsync>d__13.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в Microsoft.Bot.Builder.Internals.Fibers.Wait`2.Microsoft.Bot.Builder.Internals.Fibers.IAwaiter<T>.GetResult()
+   в BotApplication.Controllers.MessagesController.<>c.<<MakeRoot>b__0_1>d.MoveNext() в D:\Projects\Win\BotApplication — копия\BotApplication — копия\BotApplication\Controllers\MessagesController.cs:строка 26
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в Microsoft.Bot.Builder.Internals.Fibers.Wait`2.Microsoft.Bot.Builder.Internals.Fibers.IAwaiter<T>.GetResult()
+   в Microsoft.Bot.Builder.Dialogs.Chain.DoDialog`1.<ResumeAsync>d__4.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.DialogTask.ThunkResume`1.<Rest>d__4.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Internals.Fibers.Wait`2.<Microsoft-Bot-Builder-Internals-Fibers-IWait<C>-PollAsync>d__19.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Internals.Fibers.Frame`1.<Microsoft-Bot-Builder-Internals-Fibers-IFrameLoop<C>-PollAsync>d__7.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Internals.Fibers.Fiber`1.<Microsoft-Bot-Builder-Internals-Fibers-IFiberLoop<C>-PollAsync>d__13.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в Microsoft.Bot.Builder.Internals.Fibers.Wait`2.Microsoft.Bot.Builder.Internals.Fibers.IAwaiter<T>.GetResult()
+   в Microsoft.Bot.Builder.Dialogs.Chain.LoopDialog`1.<ResumeAsync>d__3.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.DialogTask.ThunkResume`1.<Rest>d__4.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Internals.Fibers.Wait`2.<Microsoft-Bot-Builder-Internals-Fibers-IWait<C>-PollAsync>d__19.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Internals.Fibers.Frame`1.<Microsoft-Bot-Builder-Internals-Fibers-IFrameLoop<C>-PollAsync>d__7.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Internals.Fibers.Fiber`1.<Microsoft-Bot-Builder-Internals-Fibers-IFiberLoop<C>-PollAsync>d__13.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.DialogTask.<Microsoft-Bot-Builder-Dialogs-Internals-IDialogStack-PollAsync>d__19.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.DialogTask.<Microsoft-Bot-Builder-Dialogs-Internals-IPostToBot-PostAsync>d__21`1.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.ReactiveDialogTask.<Microsoft-Bot-Builder-Dialogs-Internals-IPostToBot-PostAsync>d__5`1.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.ExceptionTranslationDialogTask.<Microsoft-Bot-Builder-Dialogs-Internals-IPostToBot-PostAsync>d__2`1.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.LocalizedDialogTask.<Microsoft-Bot-Builder-Dialogs-Internals-IPostToBot-PostAsync>d__2`1.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.ScoringDialogTask`1.<Microsoft-Bot-Builder-Dialogs-Internals-IPostToBot-PostAsync>d__4`1.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.PersistentDialogTask.<Microsoft-Bot-Builder-Dialogs-Internals-IPostToBot-PostAsync>d__3`1.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в Microsoft.Bot.Builder.Dialogs.Internals.PersistentDialogTask.<Microsoft-Bot-Builder-Dialogs-Internals-IPostToBot-PostAsync>d__3`1.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.SerializingDialogTask.<Microsoft-Bot-Builder-Dialogs-Internals-IPostToBot-PostAsync>d__4`1.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.PostUnhandledExceptionToUserTask.<Microsoft-Bot-Builder-Dialogs-Internals-IPostToBot-PostAsync>d__5`1.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в Microsoft.Bot.Builder.Dialogs.Internals.PostUnhandledExceptionToUserTask.<Microsoft-Bot-Builder-Dialogs-Internals-IPostToBot-PostAsync>d__5`1.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Internals.LogPostToBot.<Microsoft-Bot-Builder-Dialogs-Internals-IPostToBot-PostAsync>d__3`1.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Conversation.<SendAsync>d__4.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в Microsoft.Bot.Builder.Dialogs.Conversation.<SendAsync>d__2.MoveNext()
+--- Конец трассировка стека из предыдущего расположения, где возникло исключение ---
+   в System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   в System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   в System.Runtime.CompilerServices.TaskAwaiter.GetResult()
+   в BotApplication.Controllers.MessagesController.<Post>d__1.MoveNext() в D:\Projects\Win\BotApplication — копия\BotApplication — копия\BotApplication\Controllers\MessagesController.cs:строка 56
