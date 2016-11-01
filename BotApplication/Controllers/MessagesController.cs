@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -24,19 +23,13 @@ namespace BotApplication.Controllers
                     var reply = string.Empty;
                     try
                     {
+                        // ReSharper disable once UnusedVariable
                         var completed = await order;
                         await context.PostAsync("Показания приняты");
                     }
                     catch (FormCanceledException<MeterReadings> e)
                     {
-                        if (e.InnerException == null)
-                        {
-                            reply = "Вы прервали операцию, попробуем позже!";
-                        }
-                        else
-                        {
-                            reply = "Извините, произошла ошибка. Попробуйте позже.";
-                        }
+                        reply = e.InnerException == null ? "Вы прервали операцию, попробуем позже!" : "Извините, произошла ошибка. Попробуйте позже.";
                     }
                     if (!string.IsNullOrEmpty(reply))
                         await context.PostAsync(reply);
@@ -49,12 +42,11 @@ namespace BotApplication.Controllers
             if (activity != null)
             {
                 //if the user types certain messages, quit all dialogs and start over
-                string msg = activity.Text.ToLower().Trim();
+                var msg = activity.Text.ToLower().Trim();
                 if (StopWords.Contains(msg))
                 {
                     //This is where the conversation gets reset!
                     activity.GetStateClient().BotState.DeleteStateForUser(activity.ChannelId, activity.From.Id);
-                    //await Conversation.SendAsync(activity, MakeRoot);
                 }
 
                 switch (activity.GetActivityType())
@@ -65,55 +57,22 @@ namespace BotApplication.Controllers
                         {
                             await Conversation.SendAsync(activity, MakeRoot);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
-                            File.WriteAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "botErrorSendAsync" + ".txt"), ex.ToString());
+                            // ignore
                         }
                         
                         break;
                     }
 
-                    case ActivityTypes.ConversationUpdate:
-                    case ActivityTypes.ContactRelationUpdate:
-                    case ActivityTypes.Typing:
-                    case ActivityTypes.DeleteUserData:
                     default:
-                        Trace.TraceError(string.Format("Unknown activity type ignored: {0}", activity.GetActivityType()));
+                        Trace.TraceError("Unknown activity type ignored: {0}", activity.GetActivityType());
                         break;
                 }
             }
             return new HttpResponseMessage(HttpStatusCode.Accepted);
         }
 
-        private Activity HandleSystemMessage(Activity message)
-        {
-            if (message.Type == ActivityTypes.DeleteUserData)
-            {
-                // Implement user deletion here
-                // If we handle user deletion, return a real message
-            }
-            else if (message.Type == ActivityTypes.ConversationUpdate)
-            {
-                // Handle conversation state changes, like members being added and removed
-                // Use Activity.MembersAdded and Activity.MembersRemoved and Activity.Action for info
-                // Not available in all channels
-            }
-            else if (message.Type == ActivityTypes.ContactRelationUpdate)
-            {
-                // Handle add/remove from contact lists
-                // Activity.From + Activity.Action represent what happened
-            }
-            else if (message.Type == ActivityTypes.Typing)
-            {
-                // Handle knowing tha the user is typing
-            }
-            else if (message.Type == ActivityTypes.Ping)
-            {
-            }
-
-            return null;
-        }
-
-        static readonly string[] StopWords = { "reset", "restart", "exit", "cancel", "quit", "done", "отмена", "заного", "заново", "занова", "выход", "рестарт", "отменить" };
+        static readonly string[] StopWords = { "reset", "restart", "exit", "cancel", "quit", "done", "stop", "отмена", "заного", "заново", "занова", "выход", "рестарт", "отменить", "стоп"};
     }
 }

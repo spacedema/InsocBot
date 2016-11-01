@@ -12,15 +12,16 @@ namespace BotApplication.Helpers
         public async static Task<MeterFormModel> GetUser(string subscrCode)
         {
             var url = "https://lk.insoc.ru/MeterByPribors/getapi/" + subscrCode;
-            var client = new HttpClient();
-            var data = await client.GetStringAsync(url);
-            if (data != null)
+
+            using (var client = new HttpClient())
             {
-                var meter = JsonConvert.DeserializeObject(data, typeof (MeterFormModel));
+                var data = await client.GetStringAsync(url);
+                if (data == null) 
+                    return null;
+
+                var meter = JsonConvert.DeserializeObject(data, typeof(MeterFormModel));
                 return meter as MeterFormModel;
             }
-
-            return null;
         }
 
         public static void SaveReading(MeterReadings reading)

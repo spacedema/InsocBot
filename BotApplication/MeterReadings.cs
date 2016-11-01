@@ -13,12 +13,14 @@ namespace BotApplication
     [Serializable]
     public class MeterReadings
     {
+        private static DateTime _emptyDate = new DateTime();
+
         [Prompt("Введите 11-ти значный номер лицевого счета")]
         [Describe("Номер ЛС")]
         [Terms("Номер ЛС")]
         public string SubscrCode;
 
-        [Describe("cчетчик для ввода показаний")]
+        [Describe("cчетчик")]
         [Terms("cчетчик для ввода показаний")]
         public string MeterId;
 
@@ -119,7 +121,6 @@ namespace BotApplication
                 .Field("Reading", null, validateReading)
                 //TODO: https://github.com/Microsoft/BotBuilder/issues/1324 - убрать термы с полей
                 .Confirm("Вы хотите ввести показание {Reading} по прибору учета {MeterId}? {||}", null, new[] { "MeterId", "Reading" })
-                
                 .OnCompletion(processOrder)
                 .Build();
 
@@ -138,8 +139,20 @@ namespace BotApplication
                 if (meter == null)
                     return new PromptAttribute("Предыдущее показание не найдено");
 
-                return new PromptAttribute("Последнее показание: " + string.Format(string.Format("{{0:{0}}}", "N" + meter.Unit), meter.BackMeterDec) + " - " + string.Format("{0:d}", meter.LastDate));
+
+                var previousReading = GetReadingString("Предыдущее показание", meter.BackMeterDec, meter.LastDate, meter.Unit);
+                var currentReading = GetReadingString("Текущее показание", meter.CurrentMeterDec, meter.D_MR_Date, meter.Unit);
+                return new PromptAttribute(previousReading + "\n\n" + currentReading);
             });
+        }
+
+        private static string GetReadingString(string readingName, decimal? reading, DateTime? date, int precision)
+        {
+            if (!date.HasValue || date.Value == _emptyDate)
+                return readingName + ": " + "Не задано";
+            
+            var readingString = string.Format(string.Format("{{0:{0}}}", "N" + precision), reading ?? 0);
+            return readingName + ": " + readingString + " - " + string.Format("{0:d}", date);
         }
     }
 }

@@ -1,64 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 
 namespace BotApplication.Model
 {
     [Serializable]
     public class MeterModel
     {
-//        public string PlaceHolderMessageByCurrentMeter()
-//        {
-//            string unitString = "";
-//            for (var i = 0; i < Unit; i++)
-//            {
-//                unitString += "0";
-//            }
-//            if (Unit > 0)
-//                return "123 или 123." + unitString;
-//            else
-//                return "123";
-//        }
-//
-//        public string CurrentMeterTooltip()
-//        {
-//            return "Вводимые данные должны быть в формате " + (Unit > 0 ? PlaceHolderMessageByCurrentMeter() : " 123");
-//        }
-//
-//        public string GetCurrentMeter()
-//        {
-//            if (CurrentMeterDec.HasValue && CurrentMeterDec > 0)
-//                return GetDecimalToString(CurrentMeterDec);
-//            else
-//                return "";
-//        }
-//
-//        public string GetBackMeter()
-//        {
-//            if (BackMeterDec > 0)
-//                return GetDecimalToString(BackMeterDec);
-//            else
-//                return "";
-//        }
-//
-//        public string GetConsumption()
-//        {
-//            if (Consumption > 0)
-//                return GetDecimalToString(Consumption);
-//            else
-//                return "";
-//        }
-//
-//
-        private string GetDecimalToString(Decimal? dec)
-        {
-            if (!dec.HasValue)
-                return string.Empty;
-
-            return GetDecimalToString(dec.Value);
-        }
-
         private string GetDecimalToString(Decimal dec)
         {
             return dec.ToString("F" + Unit, new System.Globalization.CultureInfo("en-US"));
@@ -80,6 +26,7 @@ namespace BotApplication.Model
         /// <summary>
         /// Возвращается идентификатор для вывода на сайте
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         public string WebID
         {
             get
@@ -100,7 +47,7 @@ namespace BotApplication.Model
         /// <summary>
         /// Предыдущее показание
         /// </summary>
-        public decimal BackMeterDec
+        public decimal? BackMeterDec
         {
             get
             {
@@ -108,7 +55,7 @@ namespace BotApplication.Model
             }
             set
             {
-                BackMeterStr = GetDecimalToString(value);
+                BackMeterStr = value < 0 ? null : GetDecimalToStringDb(value);
             }
         }
 
@@ -129,7 +76,7 @@ namespace BotApplication.Model
             }
             set
             {
-                CurrentMeterStr = value > 0 ? GetDecimalToStringDb(value) : null;
+                CurrentMeterStr = value < 0? null : GetDecimalToStringDb(value);
             }
         }
 
@@ -141,19 +88,21 @@ namespace BotApplication.Model
         /// <summary>
         /// Дата последнего снятия показания
         /// </summary>
-        public DateTime LastDate { get; set; }
+        public DateTime? LastDate { get; set; }
         /// <summary>
         /// Имя услуги
         /// </summary>
-        //[MapField("C_Service")]
         public string ServiceName { get; set; }
 
+        // ReSharper disable once InconsistentNaming
         public int F_Registr_Pts { get; set; }
 
+        // ReSharper disable once InconsistentNaming
         public int N_Period { get; set; }
         /// <summary>
         /// Дата последнего ввода показания(если был в этом месяце)
         /// </summary>
+        // ReSharper disable once InconsistentNaming
         public DateTime? D_MR_Date { get; set; }
 
         /// <summary>
