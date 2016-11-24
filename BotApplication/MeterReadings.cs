@@ -6,6 +6,7 @@ using BotApplication.Model;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Builder.FormFlow.Advanced;
+using Newtonsoft.Json;
 
 namespace BotApplication
 {
@@ -29,6 +30,7 @@ namespace BotApplication
         [Terms("Показание")]
         public string Reading;
 
+        [JsonIgnore]
         public MeterFormModel User;
 
         public static IForm<MeterReadings> MakeForm()
@@ -47,7 +49,7 @@ namespace BotApplication
                         return result;
                     }
                     
-                    var user = ApiHelper.GetUser(subscrCode);
+                    var user = ApiHelper.Get(subscrCode);
                     state.User = await user;
                     if (state.User == null)
                     {
@@ -128,7 +130,7 @@ namespace BotApplication
 
         private static Task<PromptAttribute> ShowHello(MeterReadings reading)
         {
-            return Task.Run(() => new PromptAttribute(string.Format("Здравствуйте, {0}", reading.User.SubscrId)));
+            return Task.Run(() => new PromptAttribute(string.Format("Здравствуйте, {0}", reading.User.Name)));
         }
 
         private static Task<PromptAttribute> ShowPreviousReading(MeterReadings reading)

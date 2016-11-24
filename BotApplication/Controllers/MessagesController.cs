@@ -6,9 +6,11 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using BotApplication.Helpers;
 using Microsoft.Bot.Builder.Dialogs;
 using Microsoft.Bot.Builder.FormFlow;
 using Microsoft.Bot.Connector;
+using Newtonsoft.Json;
 
 namespace BotApplication.Controllers
 {
@@ -25,7 +27,8 @@ namespace BotApplication.Controllers
                     {
                         // ReSharper disable once UnusedVariable
                         var completed = await order;
-                        await context.PostAsync("Показания приняты");
+                        var result = await ApiHelper.Save(JsonConvert.SerializeObject(completed));
+                        await context.PostAsync(result);
                     }
                     catch (FormCanceledException<MeterReadings> e)
                     {
@@ -42,11 +45,14 @@ namespace BotApplication.Controllers
             if (activity != null)
             {
                 //if the user types certain messages, quit all dialogs and start over
-                var msg = activity.Text.ToLower().Trim();
-                if (StopWords.Contains(msg))
+                if (activity.Text != null)
                 {
-                    //This is where the conversation gets reset!
-                    activity.GetStateClient().BotState.DeleteStateForUser(activity.ChannelId, activity.From.Id);
+                    var msg = activity.Text.ToLower().Trim();
+                    if (StopWords.Contains(msg))
+                    {
+                        //This is where the conversation gets reset!
+                        activity.GetStateClient().BotState.DeleteStateForUser(activity.ChannelId, activity.From.Id);
+                    }
                 }
 
                 switch (activity.GetActivityType())

@@ -23,5 +23,7 @@ namespace BotApplication.Model
 
         public string Result { get; set; }
         public string Message { get; set; }
+
+        public string Name { get; set; }
     }
 }
