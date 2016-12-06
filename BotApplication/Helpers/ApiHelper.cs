@@ -10,14 +10,15 @@ namespace BotApplication.Helpers
     [Serializable]
     public static class ApiHelper
     {
-        private static string getUrl = "https://lk.insoc.ru/MeterByPribors/getapi/";
-        private static string postUrl = "https://lk.insoc.ru/MeterByPribors/saveapi/";
+        private static string getUrl = "http://lk.insoc.ru/MeterByPribors/getapi/";
+        private static string postUrl = "http://lk.insoc.ru/MeterByPribors/saveapi/";
 
-        public async static Task<MeterFormModel> Get(string subscrCode)
+        public async static Task<MeterFormModel> Get(string subscrCode, string partner)
         {
             using (var client = new HttpClient())
             {
-                var data = await client.GetStringAsync(getUrl + subscrCode);
+                var query = string.Format("?subscr={0}&org={1}", subscrCode, partner);
+                var data = await client.GetStringAsync(getUrl + query);
                 if (data == null) 
                     return null;
 

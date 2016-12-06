@@ -11,8 +11,8 @@ namespace BotApplication.Helpers
             if (string.IsNullOrWhiteSpace(subscrCode))
                 return "Извините, я вас не понял";
 
-            if (subscrCode.Length != 11)
-                return "Длина номера ЛС должна быть 11 символов";
+//            if (subscrCode.Length != 11)
+//                return "Длина номера ЛС должна быть 11 символов";
 
             if (subscrCode.Any(x => !char.IsNumber(x)))
                 return "Номер ЛС должен содержать только цифры";

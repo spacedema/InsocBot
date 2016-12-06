@@ -16,10 +16,15 @@ namespace BotApplication
     {
         private static DateTime _emptyDate = new DateTime();
 
-        [Prompt("Введите 11-ти значный номер лицевого счета")]
+        [Prompt("Введите номер лицевого счета")]
         [Describe("Номер ЛС")]
         [Terms("Номер ЛС")]
         public string SubscrCode;
+
+        [Prompt("Введите название УК")]
+        [Describe("УК")]
+        [Terms("УК")]
+        public string Partner;
 
         [Describe("cчетчик")]
         [Terms("cчетчик для ввода показаний")]
@@ -35,6 +40,36 @@ namespace BotApplication
 
         public static IForm<MeterReadings> MakeForm()
         {
+            ValidateAsyncDelegate<MeterReadings> validatPartner =
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+             async (state, value) =>
+             {
+                 var partner = value as string;
+                 var subscrCode = state.SubscrCode;
+                 var result = new ValidateResult();
+                 var user = ApiHelper.Get(subscrCode, partner);
+                 state.User = await user;
+                 if (state.User == null)
+                 {
+                     result.Feedback = "Извините, но мне не удалось идентифицировать Вас. Давайте попробуем снова.";
+                     result.IsValid = false;
+                     return result;
+                 }
+
+                 if (!string.IsNullOrEmpty(state.User.Message))
+                 {
+                     result.Feedback = state.User.Message;
+                     result.IsValid = false;
+                     return result;
+                 }
+
+                 result.Feedback = null;
+                 result.IsValid = true;
+                 result.Value = subscrCode;
+                 return result;
+             };
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+
             ValidateAsyncDelegate<MeterReadings> validateSubscr =
 #pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
                 async (state, value) =>
@@ -49,22 +84,6 @@ namespace BotApplication
                         return result;
                     }
                     
-                    var user = ApiHelper.Get(subscrCode);
-                    state.User = await user;
-                    if (state.User == null)
-                    {
-                        result.Feedback = "Извините, но мне не удалось идентифицировать Вас. Давайте попробуем снова.";
-                        result.IsValid = false;
-                        return result;
-                    }
-
-                    if (!string.IsNullOrEmpty(state.User.Message))
-                    {
-                        result.Feedback = state.User.Message;
-                        result.IsValid = false;
-                        return result;
-                    }
-
                     result.Feedback = null;
                     result.IsValid = true;
                     result.Value = subscrCode;
@@ -104,6 +123,7 @@ namespace BotApplication
             return new FormBuilder<MeterReadings>()
                 .Message("Добро пожаловать в сервис приема показаний!")
                 .Field("SubscrCode", null, validateSubscr)
+                .Field("Partner", null, validatPartner)
                 .Message(ShowHello)
                 .Field(new FieldReflector<MeterReadings>("MeterId")
                     .SetType(null)
