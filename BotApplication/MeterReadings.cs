@@ -65,7 +65,7 @@ namespace BotApplication
 
                  result.Feedback = null;
                  result.IsValid = true;
-                 result.Value = subscrCode;
+                 result.Value = partner;
                  return result;
              };
 #pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
